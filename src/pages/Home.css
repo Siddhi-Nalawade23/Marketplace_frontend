@@ -1,0 +1,13 @@
+.home {
+  padding: 2rem;
+}
+
+.home__title {
+  margin-bottom: 1.5rem;
+}
+
+.home__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

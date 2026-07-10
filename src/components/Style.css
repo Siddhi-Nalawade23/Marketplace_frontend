@@ -1,0 +1,136 @@
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image-placeholder {
+  background-color: #f2f2f2;
+  height: 140px;
+  border-radius: 6px;
+}
+
+.product-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.product-card__description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.product-card__price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-card__button {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.product-card__button:hover {
+  background-color: #333;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar__logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.navbar__link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card__image-placeholder {
+  background-color: #f2f2f2;
+  height: 140px;
+  border-radius: 6px;
+}
+
+.product-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.product-card__description {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.product-card__price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-card__button {
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.product-card__button:hover {
+  background-color: #333;
+}

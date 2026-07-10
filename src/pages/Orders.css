@@ -1,0 +1,46 @@
+.orders {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.orders__card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.orders__card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.orders__status {
+  text-transform: capitalize;
+  color: #1a1a1a;
+  background: #f2f2f2;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.orders__items {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.orders__items li {
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.orders__total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
