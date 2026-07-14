@@ -18,6 +18,8 @@ function Login() {
         const token = res.headers["authorization"];
         if (token) {
           localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+
         }
         navigate("/");
       })
