@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCartItems, updateCartItem, removeCartItem } from "../api/cart";
 import { createOrder } from "../api/orders";
+import AddressModal from "../components/AddressModal";
+import { useToast } from "../components/Toast";
 import "./Cart.css";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState(null);
+  const [showAddressModal, setShowAddressModal] = useState(false);
   const navigate = useNavigate();
+  const showToast = useToast();
 
   const loadCart = () => {
     getCartItems()
@@ -34,13 +38,16 @@ function Cart() {
     removeCartItem(id).then(loadCart);
   };
 
-  const handleCheckout = () => {
-    createOrder()
+  const handleConfirmAddress = (shippingDetails) => {
+    createOrder(shippingDetails)
       .then(() => {
+        setShowAddressModal(false);
+        showToast("Order placed successfully", "success");
         navigate("/orders");
       })
       .catch((err) => {
-        setError(err.response?.data?.error || err.message);
+        setShowAddressModal(false);
+        showToast(err.response?.data?.error || "Checkout failed", "error");
       });
   };
 
@@ -75,10 +82,17 @@ function Cart() {
             </div>
           ))}
           <div className="cart__total">Total: ₹{total.toFixed(2)}</div>
-          <button className="cart__checkout" onClick={handleCheckout}>
+          <button className="cart__checkout" onClick={() => setShowAddressModal(true)}>
             Checkout
           </button>
         </>
+      )}
+
+      {showAddressModal && (
+        <AddressModal
+          onClose={() => setShowAddressModal(false)}
+          onConfirm={handleConfirmAddress}
+        />
       )}
     </div>
   );
