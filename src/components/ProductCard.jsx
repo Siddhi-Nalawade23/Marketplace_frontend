@@ -25,21 +25,25 @@ function ProductCard({ product, showSellerControls, onDelete }) {
 
   return (
     <div className="product-card">
-      <div className="product-card__image-wrap">
-        <img
-          src={product.image_url || DEFAULT_IMAGE}
-          alt={product.name}
-          className="product-card__image"
-        />
-        <span className={`product-card__stamp ${inStock ? "product-card__stamp--ok" : "product-card__stamp--out"}`}>
-          {inStock ? "In Stock" : "Sold Out"}
-        </span>
-      </div>
+      <Link to={`/products/${product.id}`} className="product-card__link">
+        <div className="product-card__image-wrap">
+          <img
+            src={product.image_url || DEFAULT_IMAGE}
+            alt={product.name}
+            className="product-card__image"
+          />
+          <span className={`product-card__stamp ${inStock ? "product-card__stamp--ok" : "product-card__stamp--out"}`}>
+            {inStock ? "In Stock" : "Sold Out"}
+          </span>
+        </div>
 
-      <div className="product-card__body">
-        <h3 className="product-card__name">{product.name}</h3>
-        <p className="product-card__description">{product.description}</p>
+        <div className="product-card__body">
+          <h3 className="product-card__name">{product.name}</h3>
+          <p className="product-card__description">{product.description}</p>
+        </div>
+      </Link>
 
+      <div className="product-card__body product-card__body--footer">
         <div className="product-card__perforation" />
 
         <div className="product-card__footer">

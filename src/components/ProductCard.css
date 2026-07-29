@@ -146,3 +146,12 @@
   flex-shrink: 0;
   transition: background 0.15s ease;
 }
+.product-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-card__body--footer {
+  padding-top: 0;
+}

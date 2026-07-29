@@ -14,6 +14,7 @@ import AddProduct from "./pages/AddProduct";
 import Orders from "./pages/Orders";
 import EditProduct from "./pages/EditProduct";
 import { ToastProvider } from "./components/Toast";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
    return (
@@ -29,6 +30,7 @@ function App() {
                <Route path="/orders" element={<Orders />} />
                <Route path="/admin/products" element={<AddProduct />} />
                <Route path="/admin/products/:id/edit" element={<EditProduct />} />
+               <Route path="/products/:id" element={<ProductDetail />} />
             </Routes>
          </ToastProvider>
       </>
