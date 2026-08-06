@@ -258,3 +258,14 @@
 .review-reply-box__submit:hover {
   background: var(--accent-dark);
 }
+.product-card__stamp--low {
+  background: rgba(201, 162, 39, 0.2);
+  color: #92710F;
+  border: 1px solid #92710F;
+}
+.product-detail__stock-warning {
+  color: #92710F;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: -1rem 0 1rem;
+}

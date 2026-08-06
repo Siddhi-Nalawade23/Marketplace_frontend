@@ -22,6 +22,7 @@ function ProductCard({ product, showSellerControls, onDelete }) {
   };
 
   const inStock = product.stock > 0;
+  const isLowStock = inStock && product.stock <= 5;
 
   return (
     <div className="product-card">
@@ -32,9 +33,17 @@ function ProductCard({ product, showSellerControls, onDelete }) {
             alt={product.name}
             className="product-card__image"
           />
-          <span className={`product-card__stamp ${inStock ? "product-card__stamp--ok" : "product-card__stamp--out"}`}>
-            {inStock ? "In Stock" : "Sold Out"}
-          </span>
+          {/* <span
+            className={`product-card__stamp ${
+              !inStock
+                ? "product-card__stamp--out"
+                : isLowStock
+                ? "product-card__stamp--low"
+                : "product-card__stamp--ok"
+            }`}
+          >
+            {!inStock ? "Sold Out" : isLowStock ? `Only ${product.stock} left` : "In Stock"}
+          </span> */}
         </div>
 
         <div className="product-card__body">
