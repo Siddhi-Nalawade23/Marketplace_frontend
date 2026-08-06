@@ -134,7 +134,9 @@ function ProductDetail() {
           <h1 className="product-detail__name">{product.name}</h1>
           <p className="product-detail__description">{product.description}</p>
           <p className="product-detail__price">₹{product.price}</p>
-
+               {product.stock > 0 && product.stock <= 5 && (
+  <p className="product-detail__stock-warning">Only {product.stock} left in stock!</p>
+)} 
           {!isSeller && (
             <button className="product-detail__add-btn" onClick={handleAddToCart} disabled={product.stock <= 0}>
               {product.stock > 0 ? "Add to Cart" : "Sold Out"}

@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { getCurrentUser, isSeller, logout } from "../api/authHelpers";
 import "./Style.css";
 
@@ -6,25 +7,52 @@ function Navbar() {
   const user = getCurrentUser();
   const navigate = useNavigate();
 
+  const [search, setSearch] = useState("");
+
   const handleLogout = () => {
     logout();
     navigate("/login");
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (search.trim()) {
+      navigate(`/?search=${encodeURIComponent(search.trim())}`);
+    } else {
+      navigate("/");
+    }
+  };
   return (
     <nav className="navbar">
       <Link to="/" className="navbar__logo">
         Marketplace
       </Link>
+
+      <form className="navbar__search" onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="navbar__search-input"
+        />
+        <button type="submit" className="navbar__search-btn">
+          Search
+        </button>
+      </form>
+
       <div className="navbar__links">
         <Link to="/" className="navbar__link">Products</Link>
         <Link to="/cart" className="navbar__link">Cart</Link>
         <Link to="/orders" className="navbar__link">Orders</Link>
+
         {isSeller() && (
           <Link to="/admin/products" className="navbar__link">
             Add Product
           </Link>
         )}
+
         {user ? (
           <>
             <span className="navbar__user">Hi, {user.name}</span>
