@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getOrders } from "../api/orders";
 import "./Orders.css";
-
+import { ShoppingCart } from 'lucide-react';
 function Orders() {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);

@@ -6,7 +6,6 @@ import './App.css'
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { getProducts } from "./api/products";
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cart from "./pages/Cart";
@@ -15,27 +14,33 @@ import Orders from "./pages/Orders";
 import EditProduct from "./pages/EditProduct";
 import { ToastProvider } from "./components/Toast";
 import ProductDetail from "./pages/ProductDetail";
+import Products from './pages/Products'
+import Home from './pages/Home'
+import Search from './pages/Search'
 
 function App() {
    return (
+    <ToastProvider>
+      <div className="app-layout">
+        <Navbar />
 
-      <>
-         <ToastProvider>
-            <Navbar />
-            <Routes>
-               <Route path="/" element={<Home />} />
-               <Route path="/login" element={<Login />} />
-               <Route path="/signup" element={<Signup />} />
-               <Route path="/cart" element={<Cart />} />
-               <Route path="/orders" element={<Orders />} />
-               <Route path="/admin/products" element={<AddProduct />} />
-               <Route path="/admin/products/:id/edit" element={<EditProduct />} />
-               <Route path="/products/:id" element={<ProductDetail />} />
-            </Routes>
-         </ToastProvider>
-      </>
-
-   );
+        <main className="main-content">          
+          <Routes>
+            <Route path="/products" element={<Products />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/search" element={<Search/>} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/admin/products" element={<AddProduct />} />
+            <Route path="/admin/products/:id/edit" element={<EditProduct />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+          </Routes>
+        </main>
+      </div>
+    </ToastProvider>
+  );
 }
 
 export default App

@@ -5,7 +5,7 @@ import { createOrder } from "../api/orders";
 import AddressModal from "../components/AddressModal";
 import { useToast } from "../components/Toast";
 import "./Cart.css";
-
+import { ShoppingCart } from 'lucide-react';
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [error, setError] = useState(null);
@@ -13,17 +13,15 @@ function Cart() {
   const navigate = useNavigate();
   const showToast = useToast();
 
-  const loadCart = () => {
+const loadCart = () => {
     getCartItems()
-      .then((res) => setCartItems(res.data))
-      .catch((err) => {
-        if (err.response?.status === 401) {
-          navigate("/login");
-        } else {
-          setError(err.message);
-        }
-      });
-  };
+        .then((res) => {
+          setCartItems(res.data);
+        })
+        .catch((err) => {
+            console.error("CART ERROR:", err.response?.data || err);
+        });
+};
 
   useEffect(() => {
     loadCart();
@@ -60,11 +58,11 @@ function Cart() {
 
   return (
     <div className="cart">
-      <h2>Your Cart</h2>
+      <h2 style={{display:"inline"}}>Your Cart...<span><ShoppingCart size={30} color="#54569c" /></span></h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <>
+        <div className="Cart-Item">
           {cartItems.map((item) => (
             <div className="cart__item" key={item.id}>
               <span className="cart__item-name">{item.product.name}</span>
@@ -85,7 +83,7 @@ function Cart() {
           <button className="cart__checkout" onClick={() => setShowAddressModal(true)}>
             Checkout
           </button>
-        </>
+        </div>
       )}
 
       {showAddressModal && (

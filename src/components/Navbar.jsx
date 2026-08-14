@@ -1,7 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
+import heroImg from "../assets/StoreLogo.png";
 import { getCurrentUser, isSeller, logout } from "../api/authHelpers";
 import "./Style.css";
+import {House,TruckElectric,Search,ShoppingCart ,ShoppingBag }from 'lucide-react';
 
 function Navbar() {
   const user = getCurrentUser();
@@ -24,35 +26,65 @@ function Navbar() {
     }
   };
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar__logo">
-        Marketplace
+    <div className="navbar">
+      <Link to="/products" className="navbar__logo">
+        <span className="navbar__logo-text">
+<img src={heroImg} alt="Logo" width="100%" height="60" style={{ height: "60px", width: "100%", objectFit: "contain" }} />        </span>
       </Link>
-
-      <form className="navbar__search" onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="navbar__search-input"
-        />
-        <button type="submit" className="navbar__search-btn">
-          Search
-        </button>
-      </form>
+     
 
       <div className="navbar__links">
-        <Link to="/" className="navbar__link">Products</Link>
-        <Link to="/cart" className="navbar__link">Cart</Link>
-        <Link to="/orders" className="navbar__link">Orders</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "navbar__link active" : "navbar__link"
+          }
+        ><House size={20} style={{ margin: "2px 8px 0px 0px", padding: "2px" }}  />
+          Home
+        </NavLink>
 
+        <NavLink
+          to="/products"
+          className={({ isActive }) =>
+            isActive ? "navbar__link active" : "navbar__link"
+          }
+        >  <TruckElectric size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+          Products
+        </NavLink>
+
+        <NavLink
+          to="/search"
+          className={({ isActive }) =>
+            isActive ? "navbar__link active" : "navbar__link"
+          }
+        >  
+        <Search  size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+          Search
+        </NavLink>
+
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            isActive ? "navbar__link active" : "navbar__link"
+          }
+        > 
+        <ShoppingCart  size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+          Cart
+        </NavLink>
+
+        <NavLink
+          to="/orders"
+          className={({ isActive }) =>
+            isActive ? "navbar__link active" : "navbar__link"
+          }
+        >  <ShoppingBag size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+          Orders
+        </NavLink>
         {isSeller() && (
           <Link to="/admin/products" className="navbar__link">
             Add Product
           </Link>
         )}
-
         {user ? (
           <>
             <span className="navbar__user">Hi, {user.name}</span>
@@ -66,8 +98,9 @@ function Navbar() {
             <Link to="/signup" className="navbar__link">Signup</Link>
           </>
         )}
+
       </div>
-    </nav>
+    </div>
   );
 }
 

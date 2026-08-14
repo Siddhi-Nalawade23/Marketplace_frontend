@@ -40,14 +40,17 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        <br/>
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        />
-        <button type="submit">Login</button>
+        /><br/>
+        <button type="submit" className="loginbtn">
+          Login
+        </button>
       </form>
     </div>
   );

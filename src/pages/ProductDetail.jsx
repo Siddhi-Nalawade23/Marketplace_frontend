@@ -33,7 +33,7 @@ function ProductDetail() {
   const loadReviews = () => {
     getReviews(id)
       .then((res) => setReviews(res.data))
-      .catch(() => {});
+      .catch(() => { });
   };
 
   useEffect(() => {
@@ -119,26 +119,57 @@ function ProductDetail() {
 
   return (
     <div className="product-detail">
-      <button className="product-detail__back" onClick={() => navigate(-1)}>
-        &larr; Back
-      </button>
+      <div className="product-detail__hero">
+        <button className="product-detail__back" onClick={() => navigate(-1)}>
+          &larr; Back
+        </button>
 
-      <div className="product-detail__main">
-        <img
-          src={product.image_url || DEFAULT_IMAGE}
-          alt={product.name}
-          className="product-detail__image"
-        />
+        <div className="product-detail__hero-content">
+          <div className="product-detail__image-wrap">
+            <img
+              src={product.image_url || DEFAULT_IMAGE}
+              alt={product.name}
+              className="product-detail__image"
+            />
+          </div>
 
-        <div className="product-detail__info">
-          <h1 className="product-detail__name">{product.name}</h1>
-          <p className="product-detail__description">{product.description}</p>
-          <p className="product-detail__price">₹{product.price}</p>
-               {product.stock > 0 && product.stock <= 5 && (
-  <p className="product-detail__stock-warning">Only {product.stock} left in stock!</p>
-)} 
+          <div className="product-detail__hero-info">
+            <h1 className="product-detail__name">{product.name}</h1>
+            <p className="product-detail__description">{product.description}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="product-detail__cards">
+        <div className="product-detail__card">
+          <span className="product-detail__card-label">Availability</span>
+          {product.stock > 0 ? (
+            product.stock <= 5 ? (
+              <div className="product-detail__badge product-detail__badge--low">
+                Only {product.stock} left in stock!
+              </div>
+            ) : (
+              <div className="product-detail__badge product-detail__badge--ok">
+                In Stock
+              </div>
+            )
+          ) : (
+            <div className="product-detail__badge product-detail__badge--out">
+              Sold Out
+            </div>
+          )}
+        </div>
+
+        <div className="product-detail__card product-detail__card--purchase">
+          <span className="product-detail__card-label">Price</span>
+          <div className="product-detail__price">₹{product.price}</div>
+
           {!isSeller && (
-            <button className="product-detail__add-btn" onClick={handleAddToCart} disabled={product.stock <= 0}>
+            <button
+              className="product-detail__add-btn"
+              onClick={handleAddToCart}
+              disabled={product.stock <= 0}
+            >
               {product.stock > 0 ? "Add to Cart" : "Sold Out"}
             </button>
           )}
@@ -146,6 +177,7 @@ function ProductDetail() {
       </div>
 
       <div className="product-detail__reviews">
+        {/* everything from here down stays exactly as you had it */}
         <h2 className="product-detail__reviews-title">
           Reviews {reviews.length > 0 && `(${reviews.length})`}
         </h2>
@@ -245,6 +277,7 @@ function ProductDetail() {
           )}
         </div>
       </div>
+
     </div>
   );
 }

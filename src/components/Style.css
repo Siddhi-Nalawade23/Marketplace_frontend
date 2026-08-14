@@ -53,16 +53,18 @@
 }
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #c4fffb;
-  background-color: grey;
+  flex-direction: column;
+  height: 100vh;
+  width: 18%;
+  flex-shrink: 0;
+  position: fixed;
+   background-color: #ffffff;
  
 }
 
 .navbar__logo {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  margin: 2rem 0.6rem 0rem 0.6rem;
   font-weight: bold;
   text-decoration: none;
   color: #1a1a1a;
@@ -70,20 +72,29 @@
 
 .navbar__links {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  font-size: 1rem;
   
 }
-
+.navbar__logo-text img{
+  width: 100%; 
+  
+}
+.navbar__logo-text{
+border-bottom: 4px solid #2252a5;
+}
 .navbar__link {
   text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-   color: whitesmoke;
+  
+   /* color: rgb(205, 255, 201); */
+   font-size: 1rem;
 }
 
 .navbar__link:hover {
-  color: #7becf2;
-  text-decoration: underline;
+  color: #747572;
+  /* text-decoration: underline; */
 }
 .product-card {
   border: 1px solid #e0e0e0;
@@ -99,7 +110,26 @@
 .product-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+.navbar__link {
+  text-decoration: none;
+  color: #172554;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
 
+.navbar__link:hover {
+  background-color: #fce7f3;
+}
+
+.navbar__link.active {
+  background-color: #fce7f3;
+  color: #be185d;
+  font-weight: 600;
+    border-bottom: #be185d;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}
 .product-card__image-placeholder {
   background-color: #f2f2f2;
   height: 140px;
@@ -139,23 +169,29 @@
   background-color: #333;
 }.navbar__user {
   font-size: 0.9rem;
-  color: rgb(182, 254, 190);
+  /* color: rgb(182, 254, 190); */
   
 }
 
 .navbar__logout {
-  background-color: #d32f2f;
+  /* background-color: #d32f2f;
   border: 1px solid #ff5d5d;
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.85rem; */
+  outline: none;
+  border: none;
+   background-color: #ffffff;
+   text-align: left;
+   color: #d32f2f;
+   font-size: 1rem;
+  
 }
 
 .navbar__logout:hover {
-  background-color: #1a1a1a;
-  color: white;
+  color: #ff0303;
 }
 .product-card__image {
   width: 100%;
