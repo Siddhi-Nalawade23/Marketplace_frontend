@@ -121,7 +121,7 @@ function AddressModal({ onClose, onConfirm }) {
               Cancel
             </button>
             <button type="submit" className="address-modal__confirm">
-              Confirm &amp; Pay
+              Confirm
             </button>
           </div>
         </form>

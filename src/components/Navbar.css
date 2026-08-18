@@ -1,0 +1,131 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 18%;
+  flex-shrink: 0;
+  position: fixed;
+  background-color: var(--surface);
+  border-right: 1px solid var(--line);
+}
+
+/* Logo */
+
+.navbar__logo {
+  display: block;
+  margin: 1.75rem 1.5rem 1.5rem;
+  text-decoration: none;
+}
+
+.navbar__logo-text {
+  display: block;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.navbar__logo-text img {
+  display: block;
+  width: 100%;
+}
+
+/* Links */
+
+.navbar__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.navbar__link svg {
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.navbar__link:hover {
+  background-color: var(--accent-dim);
+  color: var(--ink);
+}
+
+.navbar__link.active {
+  background-color: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+  border-left: 3px solid var(--accent);
+}
+
+/* Push logout/profile bits to bottom if navbar__user/logout render inside .navbar directly */
+
+.navbar__user {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  padding: 0 1.25rem;
+}
+
+.navbar__logout {
+  outline: none;
+  border: none;
+  background: none;
+  text-align: left;
+  color: var(--danger);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+}
+
+.navbar__logout:hover {
+  color: #b91c1c;
+}
+
+/* Search (kept in case it's reused elsewhere) */
+
+.navbar__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 1.25rem;
+}
+
+.navbar__search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--accent);
+}
+
+.navbar__search-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar__search-btn:hover {
+  background: var(--accent-hover);
+}

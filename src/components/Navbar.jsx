@@ -2,8 +2,8 @@ import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useState } from "react";
 import heroImg from "../assets/StoreLogo.png";
 import { getCurrentUser, isSeller, logout } from "../api/authHelpers";
-import "./Style.css";
-import {House,TruckElectric,Search,ShoppingCart ,ShoppingBag }from 'lucide-react';
+import "./Navbar.css";
+import { House, TruckElectric, Search, ShoppingCart, ShoppingBag, Plus } from 'lucide-react';
 
 function Navbar() {
   const user = getCurrentUser();
@@ -29,9 +29,9 @@ function Navbar() {
     <div className="navbar">
       <Link to="/products" className="navbar__logo">
         <span className="navbar__logo-text">
-<img src={heroImg} alt="Logo" width="100%" height="60" style={{ height: "60px", width: "100%", objectFit: "contain" }} />        </span>
+          <img src={heroImg} alt="Logo" width="100%" height="60" style={{ height: "60px", width: "100%", objectFit: "contain" }} />        </span>
       </Link>
-     
+
 
       <div className="navbar__links">
         <NavLink
@@ -39,7 +39,7 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar__link active" : "navbar__link"
           }
-        ><House size={20} style={{ margin: "2px 8px 0px 0px", padding: "2px" }}  />
+        ><House size={20} style={{ margin: "2px 8px 0px 0px" }} />
           Home
         </NavLink>
 
@@ -48,7 +48,7 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar__link active" : "navbar__link"
           }
-        >  <TruckElectric size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+        >  <TruckElectric size={20} style={{ margin: "2px 8px 0px 0px" }} />
           Products
         </NavLink>
 
@@ -57,46 +57,39 @@ function Navbar() {
           className={({ isActive }) =>
             isActive ? "navbar__link active" : "navbar__link"
           }
-        >  
-        <Search  size={20} style={{ margin: "2px 8px 0px 0px" }}/>
+        >
+          <Search size={20} style={{ margin: "2px 8px 0px 0px" }} />
           Search
         </NavLink>
-
-        <NavLink
-          to="/cart"
-          className={({ isActive }) =>
-            isActive ? "navbar__link active" : "navbar__link"
-          }
-        > 
-        <ShoppingCart  size={20} style={{ margin: "2px 8px 0px 0px" }}/>
-          Cart
-        </NavLink>
-
-        <NavLink
-          to="/orders"
-          className={({ isActive }) =>
-            isActive ? "navbar__link active" : "navbar__link"
-          }
-        >  <ShoppingBag size={20} style={{ margin: "2px 8px 0px 0px" }}/>
-          Orders
-        </NavLink>
-        {isSeller() && (
-          <Link to="/admin/products" className="navbar__link">
-            Add Product
-          </Link>
+        {!isSeller() && (
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              isActive ? "navbar__link active" : "navbar__link"
+            }
+          >
+            <ShoppingCart size={20} style={{ margin: "2px 8px 0px 0px" }} />
+            Cart
+          </NavLink>
         )}
-        {user ? (
-          <>
-            <span className="navbar__user">Hi, {user.name}</span>
-            <button className="navbar__logout" onClick={handleLogout}>
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link to="/login" className="navbar__link">Login</Link>
-            <Link to="/signup" className="navbar__link">Signup</Link>
-          </>
+        {!isSeller() && (
+          <NavLink
+            to="/orders"
+            className={({ isActive }) =>
+              isActive ? "navbar__link active" : "navbar__link"
+            }
+          >  <ShoppingBag size={20} style={{ margin: "2px 8px 0px 0px" }} />
+            Orders
+          </NavLink>
+        )}
+        {isSeller() && (
+          <NavLink to="/admin/products"
+            className={({ isActive }) =>
+              isActive ? "navbar__link active" : "navbar__link"
+            } className="navbar__link">
+            <Plus size={20} style={{ margin: "2px 8px 0px 0px" }} />
+            Add Product
+          </NavLink>
         )}
 
       </div>

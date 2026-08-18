@@ -51,17 +51,27 @@ function Products() {
 
   if (loading) {
     return (
-      <div className="products__loader">
-        <p>Loading products...</p>
+      <div className="home_Products">
+        <div className="products__skeleton-grid">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div className="products__skeleton-card" key={i}>
+              <div className="products__skeleton-img" />
+              <div className="products__skeleton-line" style={{ width: "70%" }} />
+              <div className="products__skeleton-line" style={{ width: "45%" }} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="products__error">
-        <p>Error: {error}</p>
-        <button onClick={loadProducts}>Retry</button>
+      <div className="home_Products">
+        <div className="products__error">
+          <p>Error: {error}</p>
+          <button onClick={loadProducts}>Retry</button>
+        </div>
       </div>
     );
   }
@@ -73,7 +83,9 @@ function Products() {
       </h1>
 
       {products.length === 0 ? (
-        <p>No products found.</p>
+        <div className="products__empty">
+          <p>No products found{search ? ` for "${search}"` : ""}.</p>
+        </div>
       ) : (
         <div className="home__grid">
           {products.map((p) => (

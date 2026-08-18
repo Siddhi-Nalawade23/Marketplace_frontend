@@ -33,7 +33,7 @@ function ProductCard({ product, showSellerControls, onDelete }) {
             alt={product.name}
             className="product-card__image"
           />
-          {/* <span
+           <span
             className={`product-card__stamp ${
               !inStock
                 ? "product-card__stamp--out"
@@ -43,7 +43,7 @@ function ProductCard({ product, showSellerControls, onDelete }) {
             }`}
           >
             {!inStock ? "Sold Out" : isLowStock ? `Only ${product.stock} left` : "In Stock"}
-          </span> */}
+          </span> 
         </div>
 
         <div className="product-card__body">

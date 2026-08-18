@@ -1,0 +1,122 @@
+.profile {
+  position: relative;
+}
+
+.profile__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem 0.35rem 0.35rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.profile__trigger:hover {
+  background: var(--accent-dim);
+  border-color: var(--line);
+}
+
+.profile__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.profile__label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile__chevron {
+  color: var(--ink-muted);
+  transition: transform 0.15s ease;
+}
+
+.profile__chevron--open {
+  transform: rotate(180deg);
+}
+
+.profile__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card-hover);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 190px;
+  z-index: 100;
+}
+
+.profile__dropdown-header {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.65rem 0.7rem;
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile__dropdown-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.profile__dropdown-role {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  text-transform: capitalize;
+}
+
+.profile__link,
+.profile__logout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
+  background: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.profile__link:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.profile__logout {
+  color: var(--danger);
+}
+
+.profile__logout:hover {
+  background: var(--danger-dim);
+}

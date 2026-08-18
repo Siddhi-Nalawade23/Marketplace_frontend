@@ -108,7 +108,7 @@ function EditProduct() {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
-        <button type="submit">Save Changes</button>
+        <button type="submit" className="loginbtn">Save Changes</button>
       </form>
     </div>
   );

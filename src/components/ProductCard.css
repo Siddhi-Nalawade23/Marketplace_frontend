@@ -5,7 +5,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 150%;
+  height: 100%;
   transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
@@ -27,39 +27,37 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   flex-shrink: 0;
+  background: var(--bg); /* fills gaps around transparent-background product PNGs */
 }
 
 .product-card__image {
   width: 100%;
   height: 100%;
-  margin:3%;
   object-fit: cover;
 }
 
 .product-card__stamp {
   position: absolute;
-  top: 0.01rem;
-  /* right: 0.6rem; */
-  left: 0.1rem;
+  top: 0.6rem;
+  left: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  transform: rotate(0deg);
 }
 
 .product-card__stamp--ok {
-  background: rgba(201, 162, 39, 0.15);
+  background: rgba(183, 134, 44, 0.15);
   color: var(--stamp);
   border: 1px solid var(--stamp);
 }
 
 .product-card__stamp--low {
-  background: rgba(201, 162, 39, 0.2);
-  color: #92710F;
-  border: 1px solid #92710F;
+  background: rgba(183, 134, 44, 0.2);
+  color: #92710f;
+  border: 1px solid #92710f;
 }
 
 .product-card__stamp--out {
@@ -88,7 +86,7 @@
 
 .product-card__description {
   font-size: 0.85rem;
-  color: #6B7085;
+  color: #6b7085;
   margin: 0;
   flex: 1;
   display: -webkit-box;
@@ -137,11 +135,11 @@
 }
 
 .product-card__button:hover {
-  background: var(--accent-dark);
+  background: var(--accent-hover);
 }
 
 .product-card__button:disabled {
-  background: #C9CCD6;
+  background: #c9ccd6;
   cursor: not-allowed;
 }
 
@@ -166,4 +164,31 @@
   color: var(--danger);
   cursor: pointer;
   padding: 0;
+}
+.product-card__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--bg);
+  padding: 0.75rem;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* was cover — contain + padding gives every product equal breathing room */
+}
+
+.product-card__perforation {
+  border-top: 1.5px dashed var(--line);
+  margin: 0.75rem 0;
+}
+
+.product-card__price {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
 }

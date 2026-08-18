@@ -17,6 +17,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Products from './pages/Products'
 import Home from './pages/Home'
 import Search from './pages/Search'
+import Profile from './components/Profile'
+import Topbar from './components/Topbar'
 
 function App() {
    return (
@@ -24,7 +26,8 @@ function App() {
       <div className="app-layout">
         <Navbar />
 
-        <main className="main-content">          
+        <main className="main-content">
+          <Topbar/>
           <Routes>
             <Route path="/products" element={<Products />} />
             <Route path="/" element={<Home/>} />
