@@ -68,6 +68,7 @@ function ProductDetail() {
   const handleSubmitReview = (e) => {
     e.preventDefault();
     if (!currentUser) {
+      
       showToast("Please log in to leave a review", "error");
       return;
     }
