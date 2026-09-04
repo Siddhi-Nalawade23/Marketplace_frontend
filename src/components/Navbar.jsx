@@ -86,12 +86,11 @@ function Navbar() {
           <NavLink to="/admin/products"
             className={({ isActive }) =>
               isActive ? "navbar__link active" : "navbar__link"
-            } className="navbar__link">
+            } >
             <Plus size={20} style={{ margin: "2px 8px 0px 0px" }} />
             Add Product
           </NavLink>
         )}
-
       </div>
     </div>
   );
